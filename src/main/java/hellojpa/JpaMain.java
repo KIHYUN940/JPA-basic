@@ -64,10 +64,21 @@ public class JpaMain {
 //            member.setName("ZZZZZ"); // 현재 DB에 150 : A값을 ZZZZZ로 변경 -> em.persist(member);를 쓸 필요가 없다. - 변경 감지
 
             //영속
-            Member member = new Member(200L, "member200");
-            em.persist(member);
+//            Member member = new Member(200L, "member200");
+//            em.persist(member);
+//
+//            em.flush(); // 커밋 되기 전에 미리 쿼리를 보고싶을 때 강제로 flush() 호출 / DB에 미리 반영
 
-            em.flush(); // 커밋 되기 전에 미리 쿼리를 보고싶을 때 강제로 flush() 호출 / DB에 미리 반영
+            //영속
+            Member member = em.find(Member.class, 150L); // 영속성 상태로 관리
+            member.setName("AAAAA");
+
+//            em.detach(member); // 특정 엔티티만 준영속 상태로 변경
+
+            em.clear(); // 영속성 컨텍스트를 완전히 초기화
+            Member member2 = em.find(Member.class, 150L); // 컨텍스트가 초기화 됐으니 다시 쿼리 조회
+
+//            em.close(); // 영속성 컨텍스트를 종료
 
             System.out.println("==============");
 

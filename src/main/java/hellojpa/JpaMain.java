@@ -60,8 +60,14 @@ public class JpaMain {
 //            em.persist(member2); // --> 커밋 전까지 쓰기 지연 SQL 저장소에서 쿼리가 쌓임 / 버퍼링을 모아서 write 하는 이점을 얻을 수 있음
 
             //변경 감지
-            Member member = em.find(Member.class, 150L);
-            member.setName("ZZZZZ"); // 현재 DB에 150 : A값을 ZZZZZ로 변경 -> em.persist(member);를 쓸 필요가 없다. - 변경 감지
+//            Member member = em.find(Member.class, 150L);
+//            member.setName("ZZZZZ"); // 현재 DB에 150 : A값을 ZZZZZ로 변경 -> em.persist(member);를 쓸 필요가 없다. - 변경 감지
+
+            //영속
+            Member member = new Member(200L, "member200");
+            em.persist(member);
+
+            em.flush(); // 커밋 되기 전에 미리 쿼리를 보고싶을 때 강제로 flush() 호출 / DB에 미리 반영
 
             System.out.println("==============");
 

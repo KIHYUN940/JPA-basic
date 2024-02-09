@@ -70,17 +70,24 @@ public class JpaMain {
 //            em.flush(); // 커밋 되기 전에 미리 쿼리를 보고싶을 때 강제로 flush() 호출 / DB에 미리 반영
 
             //영속
-            Member member = em.find(Member.class, 150L); // 영속성 상태로 관리
-            member.setName("AAAAA");
+//            Member member = em.find(Member.class, 150L); // 영속성 상태로 관리
+//            member.setName("AAAAA");
+//
+////            em.detach(member); // 특정 엔티티만 준영속 상태로 변경
+//
+//            em.clear(); // 영속성 컨텍스트를 완전히 초기화
+//            Member member2 = em.find(Member.class, 150L); // 컨텍스트가 초기화 됐으니 다시 쿼리 조회
+//
+////            em.close(); // 영속성 컨텍스트를 종료
+//
+//            System.out.println("==============");
 
-//            em.detach(member); // 특정 엔티티만 준영속 상태로 변경
+            Member member = new Member();
+            member.setId(3L);
+            member.setUsername("C");
+            member.setRoleType(RoleType.GUEST);
 
-            em.clear(); // 영속성 컨텍스트를 완전히 초기화
-            Member member2 = em.find(Member.class, 150L); // 컨텍스트가 초기화 됐으니 다시 쿼리 조회
-
-//            em.close(); // 영속성 컨텍스트를 종료
-
-            System.out.println("==============");
+            em.persist(member);
 
             tx.commit(); // 트랜잭션 커밋하는 시점에 영속성 컨텍스트에 있는 데이터가 DB로 -> 이 시점에 쿼리가 날라감
         } catch (Exception e) {

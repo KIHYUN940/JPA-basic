@@ -82,12 +82,23 @@ public class JpaMain {
 //
 //            System.out.println("==============");
 
-            Member member = new Member();
-            member.setId(3L);
-            member.setUsername("C");
-            member.setRoleType(RoleType.GUEST);
+            Member member1 = new Member();
+            member1.setUsername("A");
 
-            em.persist(member);
+            Member member2 = new Member();
+            member2.setUsername("B");
+
+            Member member3 = new Member();
+            member3.setUsername("C");
+
+            em.persist(member1);
+            em.persist(member2);
+            em.persist(member3);
+
+            System.out.println("member1 = " + member1.getId());
+            System.out.println("member2 = " + member2.getId());
+            System.out.println("member3 = " + member3.getId());
+            System.out.println("===============");
 
             tx.commit(); // 트랜잭션 커밋하는 시점에 영속성 컨텍스트에 있는 데이터가 DB로 -> 이 시점에 쿼리가 날라감
         } catch (Exception e) {

@@ -21,7 +21,7 @@ public class Member {
 //    private Long teamId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "TEAM_ID")
+    @JoinColumn(name = "TEAM_ID") //외래키가 있는 곳을 연관관계 주인으로 설정 - N:1 에서 N(다) 쪽
     private Team team;
 
     public Long getId() {

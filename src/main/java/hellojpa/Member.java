@@ -47,4 +47,10 @@ public class Member {
     public void setTeam(Team team) {
         this.team = team;
     }
+
+//    public void changeTeam(Team team) {   //로직이 들어가면 set 대신 changeTeam처럼 구분 가능하게 이름을 바꿈
+//        this.team = team;
+//
+//        team.getMembers().add(this);
+//    }
 }

@@ -16,52 +16,34 @@ public class JpaMain {
 
         try {
             //저장
+
             Team team = new Team();
             team.setName("TeamA");
-            em.persist(team);
 
-            Team team2 = new Team();
-            team2.setName("TeamB");
-            em.persist(team2);
+            em.persist(team);
 
             Member member = new Member();
             member.setUsername("member1");
+//            member.changeTeam(team); // 순수 객체 상태를 고려해서 항상 양쪽에 값을 설정 // member의 setTeam()을 하는 시점에 연관관계 편의 메서드를 생성해서 양방향 연관관계 설정 가능
 
-            member.setTeam(team);
             em.persist(member);
 
-            em.flush();
-            em.clear();
+            team.addMember(member); //연관관계 편의 메서드는 member에서 team을 세팅하던 team에서 member를 세팅하던 하나를 골라서 진행 -> 둘다 해버리면 무한 루프에 걸릴 수도 있음
 
-            Member findMember = em.find(Member.class, member.getId());
+//            team.getMembers().add(member); // 순수 객체 상태를 고려해서 항상 양쪽에 값을 설정
+                                            // flush, clear를 하면 영속성 컨텍스트에 데이터가 없고 DB에 있는걸 가져오기 때문에 JPA 내부적으로 동작해서 알아서 찾아준다. - 없으면 못 읽어온다.
+                                            // 연관관계 편의 메서드를 생성해서 활용 가능
 
-            List<Member> members = findMember.getTeam().getMembers(); //양방향 연관관계 - member -> team -> member
+//            em.flush();
+//            em.clear();
+
+            Team findTeam = em.find(Team.class, team.getId());
+            List<Member> members = findTeam.getMembers();
 
             for (Member m : members) {
                 System.out.println("m = " + m.getUsername());
             }
 
-//            member.setTeam(team2); // 연관관계 수정
-//            em.persist(member);
-
-            //조회
-//            Member findMember = em.find(Member.class, member.getId());
-//
-//            Team findTeam = findMember.getTeam();
-//
-//            System.out.println("findTeam = " + findTeam.getName());
-//
-//            //다른 팀으로 바꾸고 싶을 때
-//            Team newTeam = em.find(Team.class, 2L); // DB에 2번 팀이 있다고 가정
-//            System.out.println("newTeam = " + newTeam.getName());
-//            findMember.setTeam(newTeam);
-
-//            System.out.println("findTeam = " + findTeam.getId());
-            /*
-            정리하자면 여기서 findTeam에 할당된 값은 TeamA라 findMember.setTeam(newTeam)을 호출한 후에도 findTeam 값은 TeamA인데,
-            속성값은 변경되기 때문에 DB상에서는 member1과 TeamB가 매핑
-            * findMember 객체의 속성은 변경되어 DB 상에서는 "member1"과 "TeamB"가 매핑되는 것
-             */
 
             System.out.println("==========");
 

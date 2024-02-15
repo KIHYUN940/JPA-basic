@@ -47,4 +47,17 @@ public class Team {
     public void setMembers(List<Member> members) {
         this.members = members;
     }
+
+
+    /*
+    실무에서는 컨트롤러에서 엔티티를 반환하지 말고 DTO를 활용해서 엔티티를 변환하자
+     */
+    @Override
+    public String toString() {
+        return "Team{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", members=" + members +
+                '}';
+    }
 }

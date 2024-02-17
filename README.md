@@ -4,4 +4,5 @@
 [JPA 구동 방식, 객체와 테이블 매핑, JPQL](https://kihyunhong.tistory.com/194)  
 [영속성 컨텍스트 개념](https://kihyunhong.tistory.com/196)  
 [엔티티 매핑 / 객체 - 테이블, 필드 - 컬럼](https://kihyunhong.tistory.com/197)  
-[기본 키 매핑 / 자동 생성 전략](https://kihyunhong.tistory.com/198)
+[기본 키 매핑 / 자동 생성 전략](https://kihyunhong.tistory.com/198)  
+[JPA - 양방향 매핑 toString() 무한루프 에러](https://kihyunhong.tistory.com/199)

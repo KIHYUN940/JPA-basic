@@ -15,14 +15,12 @@ public class Team {
 
     private String name;
 
-    @OneToMany(mappedBy = "team") //연관관계의 주인이 아니면 mappedBy 속성으로 지정 / mappedBy가 적힌 곳은 읽기(조회)만 가능
+
+    // 일대다 연관관계 - 1이 연관관계 주인 - 외래키 지정  <-> 테이블은 항상 다 쪽에 외래키가 있음
+    @OneToMany
+    @JoinColumn(name = "TEAM_ID")  // @JoinColumn을 꼭 사용하자 - 사용하지 않으면 조인테이블 방식을 사용(중간 테이블 하나 추가) -> 성능 저하 및 복잡해짐
     private List<Member> members = new ArrayList<>(); // 리스트를 초기화 하는 이유는 NULL 포인터 예방 - 초기화 하지 않은 상태에서 members.add(new Member()); -> 널 포인터 발생 -> 관례로 리스트는 할상 초기화 시켜준다.
 
-
-    public void addMember(Member member) {
-        member.setTeam(this);
-        members.add(member);
-    }
 
     public Long getId() {
         return id;

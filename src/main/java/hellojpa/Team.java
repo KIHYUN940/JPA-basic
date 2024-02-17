@@ -52,12 +52,14 @@ public class Team {
     /*
     실무에서는 컨트롤러에서 엔티티를 반환하지 말고 DTO를 활용해서 엔티티를 변환하자
      */
-    @Override
-    public String toString() {
-        return "Team{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", members=" + members +
-                '}';
-    }
+
+    // 양방향 매핑 시 toString() 사용하면 무한루프 발생 - 사용 지양
+//    @Override
+//    public String toString() {
+//        return "Team{" +
+//                "id=" + id +
+//                ", name='" + name + '\'' +
+//                ", members=" + members +
+//                '}';
+//    }
 }

@@ -54,13 +54,13 @@ public class Member {
 //        team.getMembers().add(this);
 //    }
 
-
-    @Override
-    public String toString() {
-        return "Member{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", team=" + team +
-                '}';
-    }
+    // 양방향 매핑 시 toString() 사용하면 무한루프 발생 - 사용 지양
+//    @Override
+//    public String toString() {
+//        return "Member{" +
+//                "id=" + id +
+//                ", username='" + username + '\'' +
+//                ", team=" + team +
+//                '}';
+//    }
 }

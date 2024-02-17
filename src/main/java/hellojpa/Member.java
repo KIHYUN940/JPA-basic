@@ -21,6 +21,10 @@ public class Member {
     @JoinColumn(name = "TEAM_ID", insertable = false, updatable = false) // 일대다에서 양방향 적용 - insert, upate를 false로 적용해서 결과적으로 읽기 전용으로 만듦 - 이런 매핑은 공식적으로 존재 X - 실무에서 복잡하게 하다보면 쓸 일이 가끔 생기기도 함 -> * 결론은 일대다 단방향, 양방향 쓰지말고 다대일 양방향으로 사용!!
     private Team team;
 
+    @OneToOne
+    @JoinColumn(name = "LOCKER_ID")
+    private Locker locker;
+
     public Long getId() {
         return id;
     }

@@ -28,8 +28,8 @@ public class JpaMain {
             em.flush();
             em.clear();
 
-            Movie findMovie = em.find(Movie.class, movie.getId());
-            System.out.println("findMovie = " + findMovie);
+            Item findItem = em.find(Item.class, movie.getId());  // 구현 클래스마다 테이블 전략은 데이터를 넣을 땐 문제가 없지만 데이터를 찾을 때 성능이 저하되는 문제가 발생
+            System.out.println("findItem = " + findItem);
 
             System.out.println("=======");
 

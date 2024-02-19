@@ -9,7 +9,7 @@ import java.util.Date;
 import java.util.List;
 
 @Entity // JPA를 사용해서 테이블과 매핑할 클래스는 @Entity 필수
-public class Member {
+public class Member extends BaseEntity {
 
     @Id
     @GeneratedValue

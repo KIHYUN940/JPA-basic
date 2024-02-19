@@ -16,21 +16,20 @@ public class JpaMain {
 
         try {
 
-            // 1:N 일대다 연관관계 예시
+            Movie movie = new Movie();
+            movie.setDirector("aaaa");
+            movie.setActor("bbbb");
+            movie.setName("바람과 함께 사라지다.");
+            movie.setPrice(10000);
 
-            Member member = new Member();
-            member.setUsername("member1");
+            em.persist(movie);
 
-            em.persist(member);
+            //영속성 컨텍스트에 있는 걸 DB에 다 날리고 영속성 컨텍스트를 비움
+            em.flush();
+            em.clear();
 
-            Team team = new Team();
-            team.setName("teamA");
-
-            //team 객체를 추가했는데 member 쪽에 update 쿼리문이 날라감 - 1:N -> 복잡해질 수 있기 때문에 다대일 연관관계로 매핑 지향 -> 단뱡향 설계 후 필요하면 양방향 설계 GO
-            // 객체 지향적으론 일대다 설계가 맞을진 모르지만 다대일로 설계를 하면 DB 설계와 맞춰서 좀 더 유지보수하기 쉽게 만들 수 있다.
-            team.getMembers().add(member);
-
-            em.persist(team);
+            Movie findMovie = em.find(Movie.class, movie.getId());
+            System.out.println("findMovie = " + findMovie);
 
             System.out.println("=======");
 

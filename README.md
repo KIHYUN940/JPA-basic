@@ -6,4 +6,5 @@
 [엔티티 매핑 / 객체 - 테이블, 필드 - 컬럼](https://kihyunhong.tistory.com/197)  
 [기본 키 매핑 / 자동 생성 전략](https://kihyunhong.tistory.com/198)  
 [JPA - 양방향 매핑 toString() 무한루프 에러](https://kihyunhong.tistory.com/199)  
-[JPA - 연관관계 매핑 / 단방향, 양방향](https://kihyunhong.tistory.com/200)
+[JPA - 연관관계 매핑 / 단방향, 양방향](https://kihyunhong.tistory.com/200) 
+[JPA - 양방향 연관관계와 연관관계의 주인 - 주의점](https://kihyunhong.tistory.com/201)

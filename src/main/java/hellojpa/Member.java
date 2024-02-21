@@ -19,8 +19,9 @@ public class Member extends BaseEntity {
     @Column(name = "USERNAME")
     private String username;
 
-    @ManyToOne
-    @JoinColumn(name = "TEAM_ID", insertable = false, updatable = false) // 일대다에서 양방향 적용 - insert, upate를 false로 적용해서 결과적으로 읽기 전용으로 만듦 - 이런 매핑은 공식적으로 존재 X - 실무에서 복잡하게 하다보면 쓸 일이 가끔 생기기도 함 -> * 결론은 일대다 단방향, 양방향 쓰지말고 다대일 양방향으로 사용!!
+    @ManyToOne(fetch = FetchType.LAZY) //지연 로딩 LAZY를 사용하면 team을 프록시 객체로 조회한다.
+//    @ManyToOne(fetch = FetchType.EAGER) //즉시 로딩 - 예를 들어 Member와 Team을 조회할 때 항상 묶어서 조회할 때 EAGER 사용
+    @JoinColumn(name = "TEAM_ID") // 일대다에서 양방향 적용 - insert, upate를 false로 적용해서 결과적으로 읽기 전용으로 만듦 - 이런 매핑은 공식적으로 존재 X - 실무에서 복잡하게 하다보면 쓸 일이 가끔 생기기도 함 -> * 결론은 일대다 단방향, 양방향 쓰지말고 다대일 양방향으로 사용!!
     private Team team;
 
 //    @OneToOne

@@ -18,12 +18,33 @@ public class JpaMain {
 
         try {
 
-            Member member = new Member();
-            member.setUsername("hello");
-            member.setHomeAddress(new Address("city", "street", "10000"));
-            member.setWorkPeriod(new Period(LocalDateTime.now(), LocalDateTime.now()));
+            Address address = new Address("city", "street", "10000");
 
+            Member member = new Member();
+            member.setUsername("member1");
+            member.setHomeAddress(address);
             em.persist(member);
+
+            // Address의 컬럼 값을 수정하고 싶을 때, 인스턴스를 통으로 복사해서 값을 넣어 set 해줘야 함
+            Address newAddress = new Address("NewCity", address.getStreet(), address.getZipcode());
+            member.setHomeAddress(newAddress);
+
+            // 값 타입의 실제 인스턴스인 값을 공유하는 것은 위험 -> 대신 값(인스턴스)를 복사해서 사용
+//            Address copyAddress = new Address(address.getCity(), address.getStreet(), address.getZipcode());
+//
+//            Member member2 = new Member();
+//            member2.setUsername("member2");
+//            member2.setHomeAddress(copyAddress);
+//            em.persist(member2);
+
+            // member1의 주소만 바꾸고 싶어 업데이트를 했지만 모든 멤버의 주소가 같이 업데이트 되는 문제 -> side Effect 발생
+            // 임베디드 타입 같은 값 타입을 여러 엔티티에서 공유하면 위험하다.
+//            member.getHomeAddress().setCity("newCity"); //생성자로만 값을 설정하고 수정자(Setter)를 만들지 않으면 객체 타입을 수정할 수 없게 원천 차단하여 set을 할 수 없게 만듦 / 내부적으로 사용을 해야겠으면 setter를 private으로 설정
+
+            /*
+            정리
+            값 타입은 무조건 불변으로 만들어야(setter 허용 X) 나중에 부작용이 생기지 않는다.
+             */
 
             System.out.println("=======");
 

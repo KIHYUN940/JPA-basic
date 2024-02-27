@@ -4,9 +4,7 @@ import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Entity // JPA를 사용해서 테이블과 매핑할 클래스는 @Entity 필수
 public class Member {
@@ -19,13 +17,36 @@ public class Member {
     @Column(name = "USERNAME")
     private String username;
 
-    //Period - 기간
-    @Embedded
-    private Period workPeriod;
-
-    //Address - 주소
     @Embedded
     private Address homeAddress;
+
+
+    /*
+    값 타입은 본인의 라이프 사이클이 없기 때문에 테이블인데도 불구하고 Member의 생명 주기에 종속된다.
+     */
+    @ElementCollection
+    @CollectionTable(name = "FAVORITE_FOOD", joinColumns = @JoinColumn(name = "MEMBER_ID"))
+    @Column(name = "FOOD_NAME")
+    private Set<String> favoriteFoods = new HashSet<>();
+
+//    @ElementCollection
+//    @CollectionTable(name = "ADDRESS", joinColumns = @JoinColumn(name = "MEMBER_ID"))
+//    private List<Address> addressHistory = new ArrayList<>();
+
+    //위 값 타입 컬렉션 대신 일대다 매핑으로 설계 - 일대다 단방향 매핑으로 잡고 cascade - All, orpanRemoval - true
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "MEMBER_ID")
+    private List<AddressEntity> addressHistory = new ArrayList<>();
+
+
+
+//    //Period - 기간
+//    @Embedded
+//    private Period workPeriod;
+//
+//    //Address - 주소
+//    @Embedded
+//    private Address homeAddress;
 
     //한 엔티티에서 같은 값 타입 사용 시
 //    @Embedded
@@ -73,13 +94,13 @@ public class Member {
         this.username = username;
     }
 
-    public Period getWorkPeriod() {
-        return workPeriod;
-    }
-
-    public void setWorkPeriod(Period workPeriod) {
-        this.workPeriod = workPeriod;
-    }
+//    public Period getWorkPeriod() {
+//        return workPeriod;
+//    }
+//
+//    public void setWorkPeriod(Period workPeriod) {
+//        this.workPeriod = workPeriod;
+//    }
 
     public Address getHomeAddress() {
         return homeAddress;
@@ -87,5 +108,30 @@ public class Member {
 
     public void setHomeAddress(Address homeAddress) {
         this.homeAddress = homeAddress;
+    }
+
+    public Set<String> getFavoriteFoods() {
+        return favoriteFoods;
+    }
+
+    public void setFavoriteFoods(Set<String> favoriteFoods) {
+        this.favoriteFoods = favoriteFoods;
+    }
+
+//    public List<Address> getAddressHistory() {
+//        return addressHistory;
+//    }
+
+//    public void setAddressHistory(List<Address> addressHistory) {
+//        this.addressHistory = addressHistory;
+//    }
+
+
+    public List<AddressEntity> getAddressHistory() {
+        return addressHistory;
+    }
+
+    public void setAddressHistory(List<AddressEntity> addressHistory) {
+        this.addressHistory = addressHistory;
     }
 }

@@ -9,3 +9,4 @@
 [JPA - 연관관계 매핑 / 단방향, 양방향](https://kihyunhong.tistory.com/200)  
 [JPA - 양방향 연관관계와 연관관계의 주인 - 주의점](https://kihyunhong.tistory.com/201)  
 [JPA - 연관관계 매핑 - 다대일, 일대다, 일대일, 다대다](https://kihyunhong.tistory.com/202)  
+[JPA - 상속관계 매핑 - 조인 전략, 싱글 테이블 전략](https://kihyunhong.tistory.com/203)  

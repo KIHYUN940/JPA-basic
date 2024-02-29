@@ -11,3 +11,4 @@
 [JPA - 연관관계 매핑 - 다대일, 일대다, 일대일, 다대다](https://kihyunhong.tistory.com/202)  
 [JPA - 상속관계 매핑 - 조인 전략, 싱글 테이블 전략](https://kihyunhong.tistory.com/203)  
 [JPA - Mapped Superclass - 매핑 정보 상속](https://kihyunhong.tistory.com/204)  
+[JPA - 프록시](https://kihyunhong.tistory.com/205)  

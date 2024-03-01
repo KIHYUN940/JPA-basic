@@ -12,3 +12,4 @@
 [JPA - 상속관계 매핑 - 조인 전략, 싱글 테이블 전략](https://kihyunhong.tistory.com/203)  
 [JPA - Mapped Superclass - 매핑 정보 상속](https://kihyunhong.tistory.com/204)  
 [JPA - 프록시](https://kihyunhong.tistory.com/205)  
+[JPA - 즉시 로딩과 지연 로딩](https://kihyunhong.tistory.com/206)  

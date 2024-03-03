@@ -13,3 +13,4 @@
 [JPA - Mapped Superclass - 매핑 정보 상속](https://kihyunhong.tistory.com/204)  
 [JPA - 프록시](https://kihyunhong.tistory.com/205)  
 [JPA - 즉시 로딩과 지연 로딩](https://kihyunhong.tistory.com/206)  
+[영속성 전이(CASCADE)와 고아 객체](https://kihyunhong.tistory.com/208)  

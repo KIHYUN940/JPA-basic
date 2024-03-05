@@ -15,3 +15,4 @@
 [JPA - 즉시 로딩과 지연 로딩](https://kihyunhong.tistory.com/206)  
 [영속성 전이(CASCADE)와 고아 객체](https://kihyunhong.tistory.com/208)  
 [JPA - 값 타입 - 기본값 타입, 임베디드 타입, 값 타입 비교](https://kihyunhong.tistory.com/213)  
+[JPA - 값 타입 - 값 타입 컬렉션 & 엔티티](https://kihyunhong.tistory.com/214)  

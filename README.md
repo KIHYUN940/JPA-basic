@@ -19,3 +19,4 @@
 [컬렉션 프레임워크 - List - ArrayList / LinkedList](https://kihyunhong.tistory.com/210)  
 [제네릭(Generic)의 이해](https://kihyunhong.tistory.com/211)  
 [서브쿼리](https://kihyunhong.tistory.com/207)  
+[DB - 정규화, 역정규화](https://kihyunhong.tistory.com/209)  

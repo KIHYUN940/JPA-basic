@@ -18,3 +18,4 @@
 [JPA - 값 타입 - 값 타입 컬렉션 & 엔티티](https://kihyunhong.tistory.com/214)  
 [컬렉션 프레임워크 - List - ArrayList / LinkedList](https://kihyunhong.tistory.com/210)  
 [제네릭(Generic)의 이해](https://kihyunhong.tistory.com/211)  
+[서브쿼리](https://kihyunhong.tistory.com/207)  

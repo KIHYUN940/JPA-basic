@@ -21,3 +21,4 @@
 [서브쿼리](https://kihyunhong.tistory.com/207)  
 [DB - 정규화, 역정규화](https://kihyunhong.tistory.com/209)  
 [DB - JOIN](https://kihyunhong.tistory.com/228)  
+[DB - 표준 조인](https://kihyunhong.tistory.com/229)  

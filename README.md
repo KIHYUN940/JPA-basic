@@ -24,3 +24,4 @@
 [DB - 표준 조인](https://kihyunhong.tistory.com/229)  
 [DB - DDL - 제약조건](https://kihyunhong.tistory.com/221)  
 [DB - SELECT 절](https://kihyunhong.tistory.com/224)  
+[DB - WHERE 절](https://kihyunhong.tistory.com/226)  

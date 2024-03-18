@@ -26,3 +26,4 @@
 [DB - SELECT 절](https://kihyunhong.tistory.com/224)  
 [DB - WHERE 절](https://kihyunhong.tistory.com/226)  
 [DB - GROUP BY 절 & HAVING 절 & ORDER BY 절](https://kihyunhong.tistory.com/227)  
+[DB - 함수](https://kihyunhong.tistory.com/225)  

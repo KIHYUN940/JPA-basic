@@ -29,3 +29,4 @@
 [DB - 함수](https://kihyunhong.tistory.com/225)  
 [DB - DML](https://kihyunhong.tistory.com/218)  
 [DB - DCL](https://kihyunhong.tistory.com/222)  
+[DB - DDL](https://kihyunhong.tistory.com/220)  

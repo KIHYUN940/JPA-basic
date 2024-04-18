@@ -16,6 +16,7 @@
 [영속성 전이(CASCADE)와 고아 객체](https://kihyunhong.tistory.com/208)  
 [JPA - 값 타입 - 기본값 타입, 임베디드 타입, 값 타입 비교](https://kihyunhong.tistory.com/213)  
 [JPA - 값 타입 - 값 타입 컬렉션 & 엔티티](https://kihyunhong.tistory.com/214)  
+[Java Collection](https://kihyunhong.tistory.com/246)  
 [컬렉션 프레임워크 - List - ArrayList / LinkedList](https://kihyunhong.tistory.com/210)  
 [제네릭(Generic)의 이해](https://kihyunhong.tistory.com/211)  
 [데이터베이스 개념 잡기](https://kihyunhong.tistory.com/116)  
